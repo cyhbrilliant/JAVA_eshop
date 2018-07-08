@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+ <class name="com.shop.beans.Owner" table="owner">
+  <id name="id" type="java.lang.Integer">
+            <column name="Oid" />
+            <!-- 我在MYSQL中并没有设置该字段递增，但在Hibernate中依然可以设置为递增 -->
+            <generator class="increment" />
+        </id>
+        <property name="oname" type="java.lang.String">
+            <column name="Oname" length="30" />
+        </property>
+        <property name="opassword" type="java.lang.String">
+            <column name="Password" length="20" />
+        </property>
+        <property name="oadd" type="java.lang.String">
+            <column name="Oadd" length="50"/>
+         </property>
+         <property name="otel" type="java.lang.String">
+            <column name="Otel" length="11"/>
+         </property>
+         
+ </class>
+</hibernate-mapping>

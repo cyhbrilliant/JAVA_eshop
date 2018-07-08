@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"    
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	<constant name="struts.objectFactory" value="spring"></constant> 
+    <package name="my" namespace="/" extends="struts-default">        
+    <action name="register_*" class="com.shop.action.RegisterAction" method="{1}">  
+    	<result name="input">/register.jsp</result>
+        <result name="success">/Uloginqq.jsp</result> 
+        <result name="error">/user.jsp</result> 
+        <result name="update">/success.jsp</result>  
+        <result name="findById">/Uinfo.jsp</result>  
+        <result name="loginsuccess">/SUloginqq.jsp</result>
+        <result name="SfindById">/SUinfo.jsp</result>    
+        <result name="supdate">/rsuccess.jsp</result>
+         </action>  
+                      
+         
+     <action name="oregister_*" class="com.shop.action.ORegisterAction" method="{1}">
+     <result name="input">/Oregister.jsp</result>
+        <result name="success">/Ologinqq.jsp</result> 
+        <result name="error">/user.jsp</result> 
+        <result name="update">/osuccess.jsp</result>  
+        <result name="findById">/Oinfo.jsp</result>
+        <result name="ologinsuccess">/SOloginqq.jsp</result>
+         <result name="SfindById">/SOinfo.jsp</result>    
+        <result name="supdate">/orsuccess.jsp</result>   
+     </action>  
+     
+     <action name="login" class="com.shop.action.LoginAction">
+     <result name="input">/qq.jsp</result>
+     <result name="error">/loginfail.jsp</result>
+     <result name="success" type="redirectAction">
+       <param name="actionName">register_loginsuccess.action</param>
+        <param name="username">${user.username}</param></result>
+     </action>
+     
+     <action name="ologin" class="com.shop.action.OLoginAction">
+     <result name="input">/qq.jsp</result>
+     <result name="error">/loginfail.jsp</result>
+     <result name="success" type="redirectAction">
+     <param name="actionName">oregister_ologinsuccess.action</param>
+       <param name="oname">${owner.oname}</param></result>
+       
+     </action>
+     
+     <action name="goods" class="com.shop.action.GoodsAction">
+     <result name="input">/qq.jsp</result>
+     <result name="error">/fail.jsp</result>
+     <result name="success" type="redirect">/ssubmit.jsp?oid=${goods.oid}</result>
+     </action>
+     
+      </package>
+
+</struts>
+ 
